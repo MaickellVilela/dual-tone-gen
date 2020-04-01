@@ -26,23 +26,32 @@
         <h1 class="text-5xl font-extrabold leading-none text-teal-900">Generate</h1>
         <h1 class="text-5xl font-extrabold leading-none text-green-500">Dual-Tone filter</h1>
         <h1 class="text-5xl font-extrabold leading-none text-teal-900">for your images on web</h1>
-        <p class="font-normal mt-12 mb-2 text-lg mr-32 text-teal-900 opacity-75">Lightweight and out of the box <span class="font-medium">svg filter generator</span> for dual tone or gradient map, cal it as you want.</p>
+        <p class="font-normal mt-6 mb-2 text-lg mr-32 text-teal-900 opacity-75">Lightweight and out of the box <span class="font-medium">svg filter generator</span> for dual tone or gradient map, cal it as you want.</p>
         <p class="font-normal text-lg mr-32 text-teal-900 opacity-75">Works with svg, png, jpg... </p>
         <small class="text-teal-900 opacity-50">any kind of image suportted by your browser.</small>
-        <div>
-          <verte class="verte-input" :showHistory="null" menuPosition="top" model="hex" value="#234E52" v-model="darksInput">
-            <svg width="84" height="60" viewBox="0 0 84 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect width="84" height="60" rx="10"/>
-            </svg>
-          </verte>
-        </div>
-        <div>
-          <verte class="verte-input" :showHistory="null" menuPosition="top" model="hex" value="#48BB78" v-model="lightsInput">
-            <svg width="84" height="60" viewBox="0 0 84 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect width="84" height="60" rx="10"/>
-            </svg>
-          </verte>
-        </div>
+        <section class="colors flex flex-wrap mt-8">
+          <h2 class="font-light text-teal-900 opacity-75 w-full mb-2">Choose you colors</h2>
+          <div>
+            <p class="font-light text-teal-900 opacity-50 text-center mb-1">shadows</p>
+            <verte class="verte-input" :showHistory="null" menuPosition="top" model="hex" value="#234E52" v-model="darksInput">
+              <svg width="84" height="60" viewBox="0 0 84 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="84" height="60" rx="10"/>
+              </svg>
+            </verte>
+            <p class="font-light text-teal-900 opacity-75 text-center mt-2">{{darksInput}}</p>
+
+          </div>
+          <div class="ml-16">
+            <p class="font-light text-teal-900 opacity-50 text-center mb-1">highlights</p>
+            <verte class="verte-input" :showHistory="null" menuPosition="top" model="hex" value="#48BB78" v-model="lightsInput">
+              <svg width="84" height="60" viewBox="0 0 84 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="84" height="60" rx="10"/>
+              </svg>
+            </verte>
+            <p class="font-light text-teal-900 opacity-75 text-center mt-2">{{lightsInput}}</p>
+
+          </div>
+        </section>
       </header>
       <div class="w-1/2">
         <div class="image">
