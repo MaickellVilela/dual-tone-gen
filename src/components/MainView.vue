@@ -23,55 +23,110 @@
     </svg>
     <div class="container flex">
       <header class="w-1/2 h-32">
-        <h1 class="text-5xl font-extrabold leading-none text-teal-900">Generate</h1>
-        <h1 class="text-5xl font-extrabold leading-none text-green-500">Dual-Tone filter</h1>
-        <h1 class="text-5xl font-extrabold leading-none text-teal-900">for your images on web</h1>
-        <p class="font-normal mt-6 mb-2 text-lg mr-32 text-teal-900 opacity-75">Lightweight and out of the box <span class="font-medium">svg filter generator</span> for dual tone or gradient map, cal it as you want.</p>
-        <p class="font-normal text-lg mr-32 text-teal-900 opacity-75">Works with svg, png, jpg... </p>
-        <small class="text-teal-900 opacity-50">any kind of image suportted by your browser.</small>
+        <h1 class="text-5xl font-extrabold leading-none text-teal-900">
+          Generate
+        </h1>
+        <h1 class="text-5xl font-extrabold leading-none text-green-500">
+          Dual-Tone filter
+        </h1>
+        <h1 class="text-5xl font-extrabold leading-none text-teal-900">
+          for your images on web
+        </h1>
+        <p class="font-normal mt-6 mb-2 text-lg mr-32 text-teal-900 opacity-75">
+          Lightweight and out of the box
+          <span class="font-medium">svg filter generator</span> for dual tone or
+          gradient map, cal it as you want.
+        </p>
+        <p class="font-normal text-lg mr-32 text-teal-900 opacity-75">
+          Works with svg, png, jpg...
+        </p>
+        <small class="text-teal-900 opacity-50"
+          >any kind of image suportted by your browser.</small
+        >
         <section class="colors flex flex-wrap mt-8">
-          <h2 class="font-light text-teal-900 opacity-75 w-full mb-2">Choose you colors</h2>
+          <h2 class="font-light text-teal-900 opacity-75 w-full mb-2">
+            Choose you colors
+          </h2>
           <div>
-            <p class="font-light text-teal-900 opacity-50 text-center mb-1">shadows</p>
-            <verte class="verte-input" :showHistory="null" menuPosition="top" model="hex" value="#234E52" v-model="darksInput">
-              <svg width="84" height="60" viewBox="0 0 84 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect width="84" height="60" rx="10"/>
+            <p class="font-light text-teal-900 opacity-50 text-center mb-1">
+              shadows
+            </p>
+            <verte
+              class="verte-input"
+              :showHistory="null"
+              menuPosition="top"
+              model="hex"
+              value="#234E52"
+              v-model="darksInput"
+            >
+              <svg
+                width="84"
+                height="60"
+                viewBox="0 0 84 60"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect width="84" height="60" rx="10" />
               </svg>
             </verte>
-            <p class="font-light text-teal-900 opacity-75 text-center mt-2">{{darksInput}}</p>
-
+            <p class="font-light text-teal-900 opacity-75 text-center mt-2">
+              {{ darksInput }}
+            </p>
           </div>
           <div class="ml-16">
-            <p class="font-light text-teal-900 opacity-50 text-center mb-1">highlights</p>
-            <verte class="verte-input" :showHistory="null" menuPosition="top" model="hex" value="#48BB78" v-model="lightsInput">
-              <svg width="84" height="60" viewBox="0 0 84 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect width="84" height="60" rx="10"/>
+            <p class="font-light text-teal-900 opacity-50 text-center mb-1">
+              highlights
+            </p>
+            <verte
+              class="verte-input"
+              :showHistory="null"
+              menuPosition="top"
+              model="hex"
+              value="#48BB78"
+              v-model="lightsInput"
+            >
+              <svg
+                width="84"
+                height="60"
+                viewBox="0 0 84 60"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect width="84" height="60" rx="10" />
               </svg>
             </verte>
-            <p class="font-light text-teal-900 opacity-75 text-center mt-2">{{lightsInput}}</p>
-
+            <p class="font-light text-teal-900 opacity-75 text-center mt-2">
+              {{ lightsInput }}
+            </p>
           </div>
         </section>
       </header>
       <div class="w-1/2">
         <div class="image">
-          <label for="file" class="image__input-label">drag your image here or click to upload</label>
+          <label for="file" class="image__input-label"
+            >drag your image here or click to upload</label
+          >
           <img
             class="image__preview"
             :style="{ filter: `url(#${filterName})` }"
             :src="imagePath"
           />
-          <input class="image__file-input" type="file" id="file" name="file" @change="onFileSelected" />
+          <input
+            class="image__file-input"
+            type="file"
+            id="file"
+            name="file"
+            @change="onFileSelected"
+          />
         </div>
       </div>
     </div>
-
   </div>
 </template>
 
 <script>
 import hexToRGB from "hex-rgb";
-import Verte from 'verte';
+import Verte from "verte";
 
 export default {
   name: "MainView",
@@ -80,9 +135,6 @@ export default {
   },
   data: function() {
     return {
-      r: `${135 / 255}` + ` ` + `${243 / 255}`,
-      g: `${35 / 255}` + ` ` + `${239 / 255}`,
-      b: `${135 / 255}` + ` ` + `${247 / 255}`,
       darksInput: "#234E52",
       lightsInput: "#48BB78",
       filterName: "duotone_peachypink",
@@ -135,7 +187,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import '~@/../node_modules/verte/dist/verte.css';
+@import "~@/../node_modules/verte/dist/verte.css";
 
 .verte {
   width: 84px;
@@ -169,7 +221,7 @@ export default {
       visibility: hidden;
     }
     &::before {
-      content: '';
+      content: "";
       display: inline-block;
       background: transparent;
       width: 100%;
