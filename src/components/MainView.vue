@@ -127,7 +127,6 @@
 <script>
 import hexToRGB from "hex-rgb";
 import Verte from "verte";
-import "verte/dist/verte.css";
 
 export default {
   name: "MainView",
@@ -188,6 +187,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@import "~@/../node_modules/verte/dist/verte.css";
 
 .verte {
   width: 84px;
