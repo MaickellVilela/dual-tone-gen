@@ -21,24 +21,30 @@
         </feComponentTransfer>
       </filter>
     </svg>
-    <div>
-      <input type="color" id="darks" name="lights" v-model="darksInput" />
-      <label for="darks">Darks {{ darksRGB }}</label>
-    </div>
-    <div>
-      <input type="color" id="lights" name="lights" v-model="lightsInput" />
-      <label for="lights">Lights {{ lightsRGB }}</label>
-    </div>
-    <div>
-      <input type="file" id="file" name="file" @change="onFileSelected" />
-      <label for="file">File {{ selectedFile }}</label>
+    <div class="container flex">
+      <div class="w-1/2 bg-green-500 h-32">
+        <div>
+          <input type="color" id="darks" name="lights" v-model="darksInput" />
+          <label for="darks">Darks {{ darksRGB }}</label>
+        </div>
+        <div>
+          <input type="color" id="lights" name="lights" v-model="lightsInput" />
+          <label for="lights">Lights {{ lightsRGB }}</label>
+        </div>
+      </div>
+      <div class="w-1/2 bg-green-600">
+        <img
+          class="test-image"
+          :style="{ filter: `url(#${filterName})` }"
+          :src="imagePath"
+        />
+        <div>
+          <input type="file" id="file" name="file" @change="onFileSelected" />
+          <label for="file">File {{ selectedFile }}</label>
+        </div>
+      </div>
     </div>
 
-    <img
-      class="test-image"
-      :style="{ filter: `url(#${filterName})` }"
-      :src="imagePath"
-    />
   </div>
 </template>
 

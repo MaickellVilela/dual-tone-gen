@@ -16,5 +16,5 @@ export default {
 </script>
 
 <style lang="scss">
-@import "~@/../node_modules/reset.css/reset.css";
+// @import "~@/../node_modules/reset.css/reset.css";
 </style>
