@@ -30,12 +30,18 @@
         <p class="font-normal text-lg mr-32 text-teal-900 opacity-75">Works with svg, png, jpg... </p>
         <small class="text-teal-900 opacity-50">any kind of image suportted by your browser.</small>
         <div>
-          <input type="color" id="darks" name="lights" v-model="darksInput" />
-          <label for="darks">Darks {{ darksRGB }}</label>
+          <verte class="verte-input" :showHistory="null" menuPosition="top" model="hex" value="#234E52" v-model="darksInput">
+            <svg width="84" height="60" viewBox="0 0 84 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="84" height="60" rx="10"/>
+            </svg>
+          </verte>
         </div>
         <div>
-          <input type="color" id="lights" name="lights" v-model="lightsInput" />
-          <label for="lights">Lights {{ lightsRGB }}</label>
+          <verte class="verte-input" :showHistory="null" menuPosition="top" model="hex" value="#48BB78" v-model="lightsInput">
+            <svg width="84" height="60" viewBox="0 0 84 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="84" height="60" rx="10"/>
+            </svg>
+          </verte>
         </div>
       </header>
       <div class="w-1/2">
@@ -56,9 +62,13 @@
 
 <script>
 import hexToRGB from "hex-rgb";
+import Verte from 'verte';
 
 export default {
   name: "MainView",
+  components: {
+    Verte
+  },
   data: function() {
     return {
       r: `${135 / 255}` + ` ` + `${243 / 255}`,
@@ -116,6 +126,16 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@import '~@/../node_modules/verte/dist/verte.css';
+
+.verte {
+  width: 84px;
+  height: 60px;
+  /deep/.verte__guide {
+    width: 100% !important;
+    height: 100% !important;
+  }
+}
 .image {
   $main: &;
   position: relative;

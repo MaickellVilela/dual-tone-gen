@@ -28,6 +28,7 @@
     "reset.css": "^2.0.2",
     "sass-loader": "^8.0.2",
     "tailwind": "^4.0.0",
+    "verte": "^0.0.12",
     "vue-cli-plugin-tailwind": "~1.2.0",
     "vue-template-compiler": "^2.6.11"
   }
