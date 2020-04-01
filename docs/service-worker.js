@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/dual-tone-gen/precache-manifest.d2128045cf020e27843ae5a68fe533a4.js"
+  "/dual-tone-gen/precache-manifest.a46bf0cea9dfd7bfbe52ca1fe71e1bb7.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "dual-tone"});
