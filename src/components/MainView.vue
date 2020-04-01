@@ -39,13 +39,14 @@
         </div>
       </header>
       <div class="w-1/2">
-        <div class="image-container">
+        <div class="image">
+          <label for="file" class="image__input-label">drag your image here or click to upload</label>
           <img
-            class="test-image"
+            class="image__preview"
             :style="{ filter: `url(#${filterName})` }"
             :src="imagePath"
           />
-          <input class="image-file-input" type="file" id="file" name="file" @change="onFileSelected" />
+          <input class="image__file-input" type="file" id="file" name="file" @change="onFileSelected" />
         </div>
       </div>
     </div>
@@ -115,42 +116,56 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.image-file-input {
-  outline: none;
-  margin-left: -400px;
-  &::-webkit-file-upload-button {
-    visibility: hidden;
-  }
-  &::before {
-    content: '';
-    display: inline-block;
-    width: 100%;
-    height: calc(100% - 29px);
-    position: absolute;
-    top: 0;
-    left: 0;
-    outline: none;
-    white-space: nowrap;
-    -webkit-user-select: none;
-    cursor: pointer;
-  }
-  &:hover::before {
-    border-color: black;
-  }
-  &:active::before {
-  }
-}
-.image-container {
+.image {
+  $main: &;
   position: relative;
   overflow: hidden;
-}
-.test-image {
-  display: block;
-  width: 100%;
-  height: auto;
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: 10px;
+  &__input-label {
+    font-weight: 300;
+    cursor: pointer;
+    position: absolute;
+    z-index: 10;
+    color: white;
+    margin: 1rem;
+    opacity: 0.3;
+    transition: all 0.3s ease-in-out;
+    #{$main}:hover & {
+      opacity: 1;
+    }
+  }
+  &__file-input {
+    outline: none;
+    margin-left: -400px;
+    &::-webkit-file-upload-button {
+      visibility: hidden;
+    }
+    &::before {
+      content: '';
+      display: inline-block;
+      background: transparent;
+      width: 100%;
+      height: calc(100% - 29px);
+      position: absolute;
+      top: 0;
+      left: 0;
+      outline: none;
+      white-space: nowrap;
+      -webkit-user-select: none;
+      cursor: pointer;
+    }
+    &:hover::before {
+    }
+    &:active::before {
+    }
+  }
+  &__preview {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+  }
 }
 .clip-filter {
   position: absolute;
