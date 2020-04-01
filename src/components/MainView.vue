@@ -26,8 +26,8 @@
         <h1 class="text-5xl font-extrabold leading-none text-teal-900">Generate</h1>
         <h1 class="text-5xl font-extrabold leading-none text-green-500">Dual-Tone filter</h1>
         <h1 class="text-5xl font-extrabold leading-none text-teal-900">for your images on web</h1>
-        <p class="mt-12 mb-2 text-lg mr-32 text-teal-900 opacity-75">Lightweight and out of the box <strong>svg filter generator</strong> for dual tone or gradient map, cal it as you want.</p>
-        <p class="text-lg mr-32 text-teal-900 opacity-75">Works with svg, png, jpg... </p>
+        <p class="font-normal mt-12 mb-2 text-lg mr-32 text-teal-900 opacity-75">Lightweight and out of the box <span class="font-medium">svg filter generator</span> for dual tone or gradient map, cal it as you want.</p>
+        <p class="font-normal text-lg mr-32 text-teal-900 opacity-75">Works with svg, png, jpg... </p>
         <small class="text-teal-900 opacity-50">any kind of image suportted by your browser.</small>
         <div>
           <input type="color" id="darks" name="lights" v-model="darksInput" />
@@ -39,14 +39,13 @@
         </div>
       </header>
       <div class="w-1/2">
-        <img
-          class="test-image"
-          :style="{ filter: `url(#${filterName})` }"
-          :src="imagePath"
-        />
-        <div>
-          <input type="file" id="file" name="file" @change="onFileSelected" />
-          <label for="file">File {{ selectedFile }}</label>
+        <div class="image-container">
+          <img
+            class="test-image"
+            :style="{ filter: `url(#${filterName})` }"
+            :src="imagePath"
+          />
+          <input class="image-file-input" type="file" id="file" name="file" @change="onFileSelected" />
         </div>
       </div>
     </div>
@@ -64,12 +63,12 @@ export default {
       r: `${135 / 255}` + ` ` + `${243 / 255}`,
       g: `${35 / 255}` + ` ` + `${239 / 255}`,
       b: `${135 / 255}` + ` ` + `${247 / 255}`,
-      darksInput: "#ff0000",
-      lightsInput: "#00ff00",
+      darksInput: "#234E52",
+      lightsInput: "#48BB78",
       filterName: "duotone_peachypink",
       selectedFile: null,
       imagePath:
-        "https://images.unsplash.com/photo-1585544313985-f84aac5abf7b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1534&q=80"
+        "https://images.unsplash.com/photo-1516670080453-15aacb2e6bc1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3750&q=80"
     };
   },
   computed: {
@@ -116,13 +115,42 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.image-file-input {
+  outline: none;
+  margin-left: -400px;
+  &::-webkit-file-upload-button {
+    visibility: hidden;
+  }
+  &::before {
+    content: '';
+    display: inline-block;
+    width: 100%;
+    height: calc(100% - 29px);
+    position: absolute;
+    top: 0;
+    left: 0;
+    outline: none;
+    white-space: nowrap;
+    -webkit-user-select: none;
+    cursor: pointer;
+  }
+  &:hover::before {
+    border-color: black;
+  }
+  &:active::before {
+  }
+}
+.image-container {
+  position: relative;
+  overflow: hidden;
+}
 .test-image {
-  // filter: url("#duotone_peachypink");
   display: block;
-  width: auto;
-  height: 100vh;
+  width: 100%;
+  height: auto;
   margin-left: auto;
   margin-right: auto;
+  border-radius: 10px;
 }
 .clip-filter {
   position: absolute;
