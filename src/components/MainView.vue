@@ -5,10 +5,10 @@
         <feColorMatrix
           type="matrix"
           result="grayscale"
-          values="1 0 0 0 0
-                    1 0 0 0 0
-                    1 0 0 0 0
-                    0 0 0 1 0"
+          values=".33 .33 .33 0 0
+                  .33 .33 .33 0 0
+                  .33 .33 .33 0 0
+                  0 0 0 1 0"
         ></feColorMatrix>
         <feComponentTransfer
           color-interpolation-filters="sRGB"
