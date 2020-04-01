@@ -1,5 +1,5 @@
 <template>
-  <div class="main-view">
+  <div class="main-view pt-32">
     <svg xmlns="http://www.w3.org/2000/svg" class="clip-filter">
       <filter :id="filterName">
         <feColorMatrix
@@ -22,7 +22,13 @@
       </filter>
     </svg>
     <div class="container flex">
-      <div class="w-1/2 bg-green-500 h-32">
+      <header class="w-1/2 h-32">
+        <h1 class="text-5xl font-extrabold leading-none text-teal-900">Generate</h1>
+        <h1 class="text-5xl font-extrabold leading-none text-green-500">Dual-Tone filter</h1>
+        <h1 class="text-5xl font-extrabold leading-none text-teal-900">for your images on web</h1>
+        <p class="mt-12 mb-2 text-lg mr-32 text-teal-900 opacity-75">Lightweight and out of the box <strong>svg filter generator</strong> for dual tone or gradient map, cal it as you want.</p>
+        <p class="text-lg mr-32 text-teal-900 opacity-75">Works with svg, png, jpg... </p>
+        <small class="text-teal-900 opacity-50">any kind of image suportted by your browser.</small>
         <div>
           <input type="color" id="darks" name="lights" v-model="darksInput" />
           <label for="darks">Darks {{ darksRGB }}</label>
@@ -31,8 +37,8 @@
           <input type="color" id="lights" name="lights" v-model="lightsInput" />
           <label for="lights">Lights {{ lightsRGB }}</label>
         </div>
-      </div>
-      <div class="w-1/2 bg-green-600">
+      </header>
+      <div class="w-1/2">
         <img
           class="test-image"
           :style="{ filter: `url(#${filterName})` }"

@@ -1,6 +1,13 @@
 module.exports = {
   theme: {
-    extend: {}
+    extend: {
+      container: {
+        center: true
+      },
+      fontFamily: {
+        sans: ["Roboto"]
+      },
+    }
   },
   variants: {},
   plugins: []
