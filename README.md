@@ -1,5 +1,7 @@
 # dual-tone
 
+![](./src/assets/cover.png)
+
 ## Project setup
 ```
 yarn install
