@@ -186,7 +186,7 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 // @import "~@/../node_modules/verte/dist/verte.css";
 @import "~@/assets/verte-temp.css";
 
