@@ -5,9 +5,9 @@
         <feColorMatrix
           type="matrix"
           result="grayscale"
-          values=".7 0 0 0 0
-                    .7 0 0 0 0
-                    .7 0 0 0 0
+          values="1 0 0 0 0
+                    1 0 0 0 0
+                    1 0 0 0 0
                     0 0 0 1 0"
         ></feColorMatrix>
         <feComponentTransfer
@@ -22,23 +22,22 @@
       </filter>
     </svg>
     <div>
-      <input
-        type="color"
-        id="darks"
-        name="lights"
-        v-model="darksInput"
-      />
+      <input type="color" id="darks" name="lights" v-model="darksInput" />
       <label for="darks">Darks {{ darksRGB }}</label>
     </div>
     <div>
       <input type="color" id="lights" name="lights" v-model="lightsInput" />
       <label for="lights">Lights {{ lightsRGB }}</label>
     </div>
+    <div>
+      <input type="file" id="file" name="file" @change="onFileSelected" />
+      <label for="file">File {{ selectedFile }}</label>
+    </div>
 
     <img
       class="test-image"
       :style="{ filter: `url(#${filterName})` }"
-      src="https://images.unsplash.com/photo-1585544313985-f84aac5abf7b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1534&q=80"
+      :src="imagePath"
     />
   </div>
 </template>
@@ -55,24 +54,31 @@ export default {
       b: `${135 / 255}` + ` ` + `${247 / 255}`,
       darksInput: "#ff0000",
       lightsInput: "#00ff00",
-      filterName: "duotone_peachypink"
+      filterName: "duotone_peachypink",
+      selectedFile: null,
+      imagePath:
+        "https://images.unsplash.com/photo-1585544313985-f84aac5abf7b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1534&q=80"
     };
   },
   computed: {
     darksRGB: function() {
       return hexToRGB(this.darksInput);
     },
-    lightsRGB: function () {
+    lightsRGB: function() {
       return hexToRGB(this.lightsInput);
     },
     redTableValue: function() {
       return `${this.darksRGB.red / 255}` + ` ` + `${this.lightsRGB.red / 255}`;
     },
     greenTableValue: function() {
-      return `${this.darksRGB.green / 255}` + ` ` + `${this.lightsRGB.green / 255}`;
+      return (
+        `${this.darksRGB.green / 255}` + ` ` + `${this.lightsRGB.green / 255}`
+      );
     },
     blueTableValue: function() {
-      return `${this.darksRGB.blue / 255}` + ` ` + `${this.lightsRGB.blue / 255}`;
+      return (
+        `${this.darksRGB.blue / 255}` + ` ` + `${this.lightsRGB.blue / 255}`
+      );
     }
   },
   watch: {
@@ -81,7 +87,18 @@ export default {
     },
     lightsInput: function() {
       this.filterName = Date.now();
-    },
+    }
+  },
+  methods: {
+    onFileSelected(event) {
+      this.selectedFile = event.target.files[0];
+
+      const reader = new FileReader();
+      reader.onload = e => {
+        this.imagePath = e.target.result;
+      };
+      reader.readAsDataURL(this.selectedFile);
+    }
   }
 };
 </script>
