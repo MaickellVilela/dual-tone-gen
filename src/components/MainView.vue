@@ -126,6 +126,7 @@
 
 <script>
 import hexToRGB from "hex-rgb";
+// import 'verte/dist/verte.css';
 import Verte from "verte";
 
 export default {
@@ -533,7 +534,7 @@ export default {
 .verte {
   width: 84px;
   height: 60px;
-  /deep/.verte__guide {
+  &__guide {
     width: 100% !important;
     height: 100% !important;
   }
